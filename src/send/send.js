@@ -181,7 +181,13 @@ const sendFormInit = () => {
 };
 
 const send = () => {
-	if ($send.querySelector('.is-invalid')) return;
+	if (!isAddressValid($sendToVal.value)) {
+		$sendToVal.classList.remove('is-valid');
+		$sendToVal.classList.add('is-invalid');
+		return;
+	}
+	calcAmountSpent();
+	if ($send.querySelector('.is-invalid') || !newTx) return;
 	$send.querySelector('fieldset').setAttribute('disabled', '');
 	const url = new URL(localStorage.nodeAddress);
 	const fetchParams = {
