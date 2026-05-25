@@ -28,6 +28,7 @@ const fetchQuery = (url, callback, fetchParams = null, errorFunc = null, callbac
 				}
 			})
 			.catch((error) => {
+				if (callbackAlways) callbackAlways();
 				if (error == 'TypeError: Failed to fetch') error += '<br><br>Maybe it is CORS! Check please <a class="btn btn-sm btn-info" target="_blank" href="https://github.com/epexa/bitgesell-wallet-dist/blob/master/CORS.md#cors">manual here.</a>';
 				Swal.fire({
 					showCloseButton: true,
