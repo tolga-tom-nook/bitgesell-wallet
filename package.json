@@ -14,7 +14,7 @@
     "DIST_FOLDER": "../bitgesell-wallet-dist"
   },
   "scripts": {
-    "test": "eslint 'src/*.js'",
+    "test": "eslint 'src/*.js' test/fetch_query_cleanup_test.js && node test/fetch_query_cleanup_test.js",
     "local-server": "IP=$npm_package_config_IP PORT=$npm_package_config_PORT node local-server.js",
     "start": "npm test && npm run local-server",
     "build": "./build.sh $npm_package_config_DIST_FOLDER",
